@@ -18,7 +18,7 @@ export default class Devices extends Component {
         this.setState({ isLoading: true });
 
         //Find all local network devices
-        const response = await fetch('http://localhost:9090/devices', {
+        const response = await fetch(process.env.REACT_APP_WOL_API_URL + '/devices', {
             method: 'GET'
         });
         const data = await response.json();

@@ -33,7 +33,7 @@ export default class Wol extends Component {
         });
 
         console.log('waking up: ' + this.state.mac);
-        const response = await fetch('http://localhost:9090/wakeup', {
+        const response = await fetch(process.env.REACT_APP_WOL_API_URL + '/wakeup', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -53,7 +53,7 @@ export default class Wol extends Component {
             let awake = false;
             while (!awake) {
                 await delay(3000);
-                const response = await fetch('http://localhost:9090/check-if-it-is-awake', {
+                const response = await fetch(process.env.REACT_APP_WOL_API_URL + '/check-if-it-is-awake', {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
